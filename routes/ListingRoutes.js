@@ -10,8 +10,8 @@ app.get("/api/listings", function(req, res) {
       query.email = req.query.email;
     }
     // 1. Add a join here to include all of the Authors to these posts
-    db.Post.findAll({
-      include: [db.User], 
+    db.Listing.findAll({
+      include: [db.User],
       where: query
     }).then(function(booksDb) {
       res.json(booksDb);
@@ -43,20 +43,21 @@ app.delete("/api/posts/:id",function(req, res) {
 		where: {
 			id: req.params.id
 		}
-	});.then(function(booksDb) {
+	}).then(function(booksDb) {
 		res.json(booksDb);
 	});
 });
 
 //Update Listing
 app.put("/api/posts", function(req, res) {
-	req.body, 
+    db.Listing.update(
+	req.body,
 	{
 		where: {
 			id: req.body.id
 		}
-	}
 	}).then(function(booksDb) {
 		res.json(booksDb);
-	});	
+	});
+  });
 };

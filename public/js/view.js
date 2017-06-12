@@ -23,17 +23,6 @@ $.get("/api/listings", function(data) {
             $("#book-well-" + i).append("<h3> Preferred Genre for Trade:" + data[i].preferred_genre + "</h3>");
             $("#book-well-" + i).append("<button class='propose' data-id='" + data[i].id + "'>Propose a Trade</button>")
 
-
-
-
-            // $("#book-well-" + i).append("<form><div class='form-group'>" +
-            //                             "<h5>Title of Book You Would Like to Trade</h5>" +
-            //                             "<input id='proposeBookTitle'" + i + " placeholder='Enter Title Here'></div><div class='form-group'>" +
-            //                             "<h5>Author of Book You Would Like to Trade</h5>" +
-            //                             "<input id='proposeBookAuthor'" + i + " placeholder='Enter Author Here'></div>" +
-            //                             "<button id='proposeTrade-" + i + "' class='btn btn-primary btn-lg'>Propose Trade</button" +
-            //                             "</form>" );
-
         }
     }
 $(".propose").on("click", function(event) {
@@ -47,8 +36,35 @@ $(".propose").on("click", function(event) {
                 $.get("/api/listings/" + proposeId.id)
                 .done(function(results) {
                 console.log(results);
+            var proposeWellSection = $("<div>");
+            // Add a class to this div: 'well'
+            proposeWellSection.addClass("well");
+            // Add an id to the well to mark which well it is
+            proposeWellSection.attr("id", "propose-book-well");
 
+            // var proposeButton = $("<button>Propose a Trade</button>");
+            // proposeButton.attr("id", "proposeButton-" + data[i].id);
+
+             // Append the well to the well section
+            $("#availableBooks").append(proposeWellSection);
+
+            // Now  we add our book data to the well we just placed on the page
+            $("#propose-book-well").append("<h2>Make Your Proposal for " + results.title + " by " + results.author + "</h2>");
+            $("#propose-book-well").append("<h3>Remeber the owner would like to trade for a book in the " + results.preferred_genre + " genre.</h3>");
+            // $("#propose-book-well").append("<button class='propose' data-id='" + data[i].id + "'>Propose a Trade</button>")
+            $("#propose-book-well").append("<form><div class='form-group'>" +
+                                        "<h5>Title of Book You Would Like to Trade</h5>" +
+                                        "<input id='proposeBookTitle' placeholder='Enter Title Here'></div><div class='form-group'>" +
+                                        "<h5>Author of Book You Would Like to Trade</h5>" +
+                                        "<input id='proposeBookAuthor' placeholder='Enter Author Here'></div>" +
+                                        "</form>" );
+             $("#propose-book-well").append("<button class='sendProposal' data-id='" + results.id + "'>Send Trade Proposal</button>")
+                $(".sendProposal").on("click", function(event) {
+                        event.preventDefault();
+                        alert("Is this working?");
+                    });
         });
+
     });
 
 });

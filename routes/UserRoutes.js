@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
 //All listings and users
   app.get("/api/users", function(req, res) {
-  	dn.User.findAll({
+  	db.User.findAll({
   		include: [db.Listing]}).then(function(booksDb) {
   			res.json(booksDb);
   		});

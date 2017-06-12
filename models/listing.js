@@ -28,7 +28,9 @@ module.exports = function(sequelize, DataTypes) {
     offer: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
+    },
+  },{
+      timestamps: false
   });
 
   return Listing;

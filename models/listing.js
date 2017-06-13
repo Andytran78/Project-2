@@ -29,6 +29,25 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
+    proposal_title: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [1]
+      }
+    },
+    proposal_author: {
+      type: DataTypes.STRING,
+      validate: {
+        len:[1]
+      }
+    },
+    proposal_email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true
+                //unique: true
+      }
+    }
   },{
       timestamps: false
   });

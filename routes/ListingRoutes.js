@@ -49,7 +49,7 @@ app.delete("/api/posts/:id",function(req, res) {
 });
 
 //Update Listing
-app.put("/api/posts", function(req, res) {
+app.put("/api/listings", function(req, res) {
     db.Listing.update(
 	req.body,
 	{

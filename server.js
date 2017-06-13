@@ -27,6 +27,7 @@ require("./routes/htmlroutes.js")(app);
 require("./routes/UserRoutes.js")(app);
 require("./routes/ListingRoutes.js")(app);
 require("./routes/CreateProfileUser.js")(app);
+require("./routes/apiroutes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({force: false}).then(function() {

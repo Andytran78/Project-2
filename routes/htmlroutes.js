@@ -22,6 +22,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../public/view.html"));
   });
 
+  app.get("/post", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/post.html"));
+  });
+
   app.get("/createProfile", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {

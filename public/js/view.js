@@ -64,10 +64,35 @@ $(".propose").on("click", function(event) {
              $("#propose-book-well").append("<a href='/view' class='btn btn-primary btn-sm'> Back to Book List</a>")
                 $(".sendProposal").on("click", function(event) {
                         event.preventDefault();
-                        console.log(results.User.email);
+                        var proposeTitle = $("#proposeBookTitle").val().trim();
+                        var proposeAuthor = $("#proposeBookAuthor").val().trim();
+                        var proposeEmail = $("#proposeEmail").val().trim();
+                        var proposalOffer = {
+                            id: results.id,
+                            proposal_title: proposeTitle,
+                            proposal_author: proposeAuthor,
+                            proposal_email: proposeEmail,
+                            offer: true
+
+                        }
+                        updateProposal(proposalOffer);
+
                     });
         });
 
     });
 
 });
+
+
+ function updateProposal(info) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/listings",
+      data: info
+    })
+    .done(function() {
+        console.log(info)
+      window.location.href = "/view";
+    });
+  }

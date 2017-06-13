@@ -2,6 +2,7 @@ var path = require("path");
 var db = require("../models");
 var passport = require("../config/passport");
 var expressValidator = require('express-validator');
+
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
@@ -26,7 +27,7 @@ module.exports = function(app) {
       last_name: req.body.lastName
 
     }).then(function() {
-      res.redirect(307, "/");
+      res.redirect("/");
     })
     .catch(function(err) {
       res.json(err);

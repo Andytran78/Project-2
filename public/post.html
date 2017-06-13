@@ -22,24 +22,47 @@
         <a href="/post" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Post Your Book</a>
         <a href="/profile" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-user"></span> Back To Your Profile</a>
             </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><strong>Available Books!</strong></h3>
+                            <h3 class="panel-title"><strong>Post Your Book</strong></h3>
                         </div>
+
                         <div class="panel-body">
-                            <div class="well">
-                                <div id="availableBooks">
+                            <form action="" method="POST" role="form">
+                                <div class="form-group">
+                                    <label for="">Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="">
                                 </div>
+                                <div class="form-group">
+                                    <label for="">Author</label>
+                                    <input type="text" class="form-control" id="author" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Genre</label>
+                                    <input type="text" class="form-control" id="genre" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Pages</label>
+                                    <input type="number" class="form-control" id="pages" placeholder="">
+                                </div>
+                            </form>
+                            <br>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-book"></span> Post a book</button>
                             </div>
                         </div>
+
                     </div>
-                </div>
+                </div>          
             </div>
+
         </div>
 
+
     <!-- Custom Script -->
-    <script src="js/members.js" type="text/javascript"></script>
+    <script src="js/post.js" type="text/javascript"></script>
     </body>
 </html>

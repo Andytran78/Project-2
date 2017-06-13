@@ -57,11 +57,14 @@ $(".propose").on("click", function(event) {
                                         "<input id='proposeBookTitle' placeholder='Enter Title Here'></div><div class='form-group'>" +
                                         "<h5>Author of Book You Would Like to Trade</h5>" +
                                         "<input id='proposeBookAuthor' placeholder='Enter Author Here'></div>" +
+                                        "<div class='form-group'><h5>Your e-mail address</h5>" +
+                                        "<input id='proposeEmail' placeholder='Enter your Email Here'></div>" +
                                         "</form>" );
-             $("#propose-book-well").append("<button class='sendProposal' data-id='" + results.id + "'>Send Trade Proposal</button>")
+             $("#propose-book-well").append("<button class='sendProposal btn btn-primary btn-sm' data-id='" + results.id + "'>Send Trade Proposal</button>")
+             $("#propose-book-well").append("<a href='/view' class='btn btn-primary btn-sm'> Back to Book List</a>")
                 $(".sendProposal").on("click", function(event) {
                         event.preventDefault();
-                        alert("Is this working?");
+                        console.log(results.User.email);
                     });
         });
 
